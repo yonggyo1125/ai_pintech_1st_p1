@@ -16,10 +16,11 @@ import org.koreait.global.libs.Utils;
  *          3) prompt() : 사용자의 입력을 받는 부분, 기본 화면은 메뉴 선택이지만 각 컨트롤러에서 새롭게 정의하면 해당 메뉴에 맞는 입력으로 새롭게 정의 가능
  */
 public abstract class Controller {
+
     // 공통 출력 부분
     public void common() {
         Utils.drawLine('-', 30);
-        System.out.printf("상품 관리 프로그램 v1.0.0");
+        System.out.printf("상품 관리 프로그램 v1.0.0\n");
         Utils.drawLine('-', 30);
     }
 
@@ -30,8 +31,10 @@ public abstract class Controller {
      *
      */
     public void prompt() {
-
-
+        Utils.drawLine('-', 30);
+        System.out.print("메뉴를 선택하세요(종료:Q):");
+        String input = Router.sc.nextLine();
+        System.out.println(input);
     }
 
     public final void run() {

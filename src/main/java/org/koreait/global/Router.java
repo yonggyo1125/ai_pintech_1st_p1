@@ -3,11 +3,12 @@ package org.koreait.global;
 import java.util.Scanner;
 
 public class Router {
-    public Scanner sc;
+    public static final Scanner sc;
 
-    public Router() {
-
+    static {
+        sc = new Scanner(System.in);
     }
+
     /**
      * 컨트롤러 라우터 실행
      *

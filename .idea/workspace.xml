@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Template.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/templates/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/koreait/global/libs/UtilsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/main/templates/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/templates/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -28,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,13 +58,82 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.UtilsTest.loadTplTest.executor": "Run",
+    "JUnit.UtilsTest.loadControllerTest.executor": "Run",
+    "JUnit.UtilsTest.loadTplTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
-}</component>
+}]]></component>
+  <component name="RunManager" selected="JUnit.UtilsTest.loadControllerTest">
+    <configuration name="UtilsTest.loadTplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.koreait.global.libs.UtilsTest.loadTplTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UtilsTest.loadControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project1.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.koreait.global.libs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.koreait.global.libs" />
+      <option name="MAIN_CLASS_NAME" value="org.koreait.global.libs.UtilsTest" />
+      <option name="METHOD_NAME" value="loadControllerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilsTest.loadTplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project1.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.koreait.global.libs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.koreait.global.libs" />
+      <option name="MAIN_CLASS_NAME" value="org.koreait.global.libs.UtilsTest" />
+      <option name="METHOD_NAME" value="loadTplTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UtilsTest.loadControllerTest" />
+        <item itemvalue="JUnit.UtilsTest.loadTplTest" />
+        <item itemvalue="Gradle.UtilsTest.loadTplTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728952038018</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=" 프로젝트 기본 틀 작성 중">
+      <option name="closed" value="true" />
+      <created>1729070252531</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729070252531</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
