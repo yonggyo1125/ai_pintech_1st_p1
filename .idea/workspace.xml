@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/koreait/global/libs/UtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/main/templates/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/templates/MainMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729070252531</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=" 프로젝트 기본 틀 작성 중">
+      <option name="closed" value="true" />
+      <created>1729124512210</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729124512210</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

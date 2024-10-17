@@ -55,8 +55,6 @@ public class Utils {
      */
     public static <T> T loadController(Class<T> clazz) {
 
-
-
         /**
          * 컨트롤러는 공통적으로 run 이라는 메서드가 정의되어 있고 run은 일련의 실행 절차가 정의되어 있다.
          */
