@@ -10,9 +10,21 @@ import org.koreait.main.templates.MainMenu;
  */
 public class MainController extends Controller {
 
+    public MainController() {
+        /**
+         * 사용자가 입력한 입력 데이터 수신 및 처리
+         *
+         */
+        setInputProcess(input -> {
+            System.out.println(input);
+        });
+    }
+
     @Override
     public void view() {
         // 템플릿 출력
         Utils.loadTpl(MainMenu.class);
     }
+
+
 }
