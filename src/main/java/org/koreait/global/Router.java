@@ -1,5 +1,8 @@
 package org.koreait.global;
 
+import org.koreait.global.libs.Utils;
+import org.koreait.main.controllers.MainController;
+
 import java.util.Scanner;
 
 public class Router {
@@ -14,6 +17,8 @@ public class Router {
      *
      */
     public void execute() {
-        
+        while(true) {
+            Utils.loadController(MainController.class);
+        }
     }
 }
