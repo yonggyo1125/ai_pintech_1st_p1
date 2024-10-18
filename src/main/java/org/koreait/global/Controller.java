@@ -1,6 +1,7 @@
 package org.koreait.global;
 
 import org.koreait.global.libs.Utils;
+import org.koreait.main.controllers.MainController;
 
 import java.util.function.Consumer;
 
@@ -21,6 +22,13 @@ public abstract class Controller {
 
     // 컨트롤러마다 사용자 입력은 다르게 처리되므로 열린 기능 형태로 함수형 인터페이스를 지정합니다.
     private Consumer<String> inputProcess;
+
+    /**
+     * 컨트롤러에 따라서 입력을 여러개 받는 경우, 예를 들면 상품 등록
+     * 이때는 프롬프트 입력을 하나 등록하고 여기에 여러개 정의, 따로 없다면
+     * 기본 한개의 입력을 받는다.
+     */
+    private Runnable promptProcess;
 
     // 공통 출력 부분
     public void common() {
@@ -51,6 +59,15 @@ public abstract class Controller {
     }
 
     /**
+     * 컨트롤러별 입력 새로 정의하는 경우 Runnable 인터페이스 구현체 추가
+     *
+     * @param promptProcess
+     */
+    protected void setPromptProcess(Runnable promptProcess) {
+        this.promptProcess = promptProcess;
+    }
+
+    /**
      * 사용자 입력 데이터 처리
      * - 컨트롤러마다 처리는 다르므로 컨트롤러 마다 정의
      *
@@ -70,20 +87,28 @@ public abstract class Controller {
         Utils.drawLine('-', 30);
         System.out.print(getPromptText());
 
-        String input = Router.sc.nextLine();
+        if (promptProcess == null) {
+            String input = Router.sc.nextLine();
 
-        // 입력 데이터 중 Q(대소문자 구분 없음)가 유입 되면 콘솔 프로그램 종료
-        if (input.toUpperCase().equals("Q")) {
-            System.out.println("종료합니다.");
-            System.exit(0);
+            // 입력 데이터 중 Q(대소문자 구분 없음)가 유입 되면 콘솔 프로그램 종료
+            if (input.toUpperCase().equals("Q")) {
+                System.out.println("종료합니다.");
+                System.exit(0);
+            } else if (input.toUpperCase().equals("M")) {
+                // 입력 데이터가 M(대소문자 구분 없음)가 유입되면 메인 메뉴로 이동
+                Utils.loadController(MainController.class);
+            }
+
+            /**
+             *  입력에 대한 처리는 컨트롤러 마다 달라질 수 있으므로 값만 넘겨주고
+             *  각 상속 받은 컨트롤러에서 등록한 Consumer<String> inputProcess 에서 처리한다.
+             *  따라서 process는 inputProcess.accept(String input)에 사용자가 입력한 값만 넘겨주면서 호출해 준다.
+             */
+            process(input); // 입력 처리
+
+        } else {
+            promptProcess.run();
         }
-
-        /**
-         *  입력에 대한 처리는 컨트롤러 마다 달라질 수 있으므로 값만 넘겨주고
-         *  각 상속 받은 컨트롤러에서 등록한 Consumer<String> inputProcess 에서 처리한다.
-         *  따라서 process는 inputProcess.accept(String input)에 사용자가 입력한 값만 넘겨주면서 호출해 준다.
-         */
-        process(input); // 입력 처리
     }
 
     /**
