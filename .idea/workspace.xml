@@ -7,6 +7,8 @@
     <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729242990416</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=" 프로젝트 기본 틀 작성 중">
+      <option name="closed" value="true" />
+      <created>1729243236601</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729243236601</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

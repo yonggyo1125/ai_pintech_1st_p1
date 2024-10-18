@@ -119,6 +119,16 @@ public class Utils {
         }
     }
 
+    /**
+     * 숫자 입력 처리
+     *
+     * 1) 필수 여부 체크
+     * 2) 숫자 형식 체크
+     * 
+     * @param title
+     * @param message
+     * @return
+     */
     public static int getNumber(String title, String message) {
 
         Scanner sc = Router.sc;

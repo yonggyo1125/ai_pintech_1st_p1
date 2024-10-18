@@ -30,7 +30,11 @@ public class ProductController extends Controller implements TypeValidator {
            int price = Utils.getNumber("판매가", "판매가를 입력하세요.");
            item.setPrice(price);
 
+            // 재고
+           int stock = Utils.getNumber("재고", "재고를 입력하세요.");
+           item.setStock(stock);
 
+           System.out.println(item);
        });
     }
 
