@@ -29,7 +29,7 @@ public abstract class Controller {
         Utils.drawLine('-', 30);
     }
 
-    public abstract void view() throws Exception; // 화면 구성
+    public abstract void view(); // 화면 구성
 
     /**
      * 사용자 입력 문구
