@@ -2,10 +2,13 @@ package org.koreait.global.libs;
 
 import org.koreait.global.BeanContainer;
 import org.koreait.global.Controller;
+import org.koreait.global.Router;
+import org.koreait.global.exceptions.BadRequestException;
 import org.koreait.global.exceptions.CommonException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Scanner;
 
 public class Utils {
     /**
@@ -89,5 +92,48 @@ public class Utils {
         }
 
         return null;
+    }
+
+    /**
+     * 텍스트 입력 처리
+     *
+     * @param title : 안내 문구
+     * @param message : 검증 실패시 안내 문구
+     * @return
+     */
+    public static String getString(String title, String message) {
+        Scanner sc = Router.sc;
+        while(true) {
+            try {
+                System.out.print(title + ": ");
+                String input = sc.nextLine();
+                if (input == null || input.isBlank()) {
+                    throw new BadRequestException(message);
+                }
+
+                break;
+            } catch (CommonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    public static int getNumber(String title, String message) {
+
+
+        while(true) {
+            try {
+                String input = getString(title, message);
+                return Integer.parseInt(input);
+            } catch (Exception e) {
+                if (e instanceof CommonException) {
+                    System.out.println(e.getMessage());
+                } else {
+                    System.out.println("숫자 형식으로 입력하세요.");
+                }
+            }
+        }
     }
 }
