@@ -19,9 +19,7 @@ import java.util.function.Consumer;
  */
 public abstract class Controller {
 
-    // 사용자 입력 텍스트
-    private String input;
-
+    // 컨트롤러마다 사용자 입력은 다르게 처리되므로 열린 기능 형태로 함수형 인터페이스를 지정합니다.
     private Consumer<String> inputProcess;
 
     // 공통 출력 부분
@@ -44,25 +42,6 @@ public abstract class Controller {
     }
 
     /**
-     * 사용자 입력 조회
-     * 재정의된 컨트롤러에서는 하기 메서드를 통해 조회 하며 그 값을 가지고 처리합니다.
-     *
-     * @return
-     */
-    protected String getInput() {
-        return input;
-    }
-
-    /**
-     * 사용자 입력 기록
-     *
-     * @param input
-     */
-    protected void setInput(String input) {
-        this.input = input;
-    }
-
-    /**
      * 사용자 입력 처리
      *
      * @param inputProcess
@@ -76,15 +55,16 @@ public abstract class Controller {
      * - 컨트롤러마다 처리는 다르므로 컨트롤러 마다 정의
      *
      */
-    protected void process() {
+    protected void process(String input) {
         if (inputProcess != null) {
-            inputProcess.accept(getInput());
+            inputProcess.accept(input);
         }
     }
 
     /**
      * 사용자 입력 공통
-     *
+     * - 사용자에게 입력을 받는 문구는 각 컨트롤러마다 달라질 수 있으므로
+     * - getPromptText()를 하위 클래스에서 재정의하여 변경할 수 있습니다. 변경하지 않는다면 기본 메뉴 선택 문구로 출력이 됩니다.
      */
     public void prompt() {
         Utils.drawLine('-', 30);
@@ -92,19 +72,34 @@ public abstract class Controller {
 
         String input = Router.sc.nextLine();
 
-        setInput(input); // 입력 기록
-        process(); // 입력 처리
-
+        // 입력 데이터 중 Q(대소문자 구분 없음)가 유입 되면 콘솔 프로그램 종료
         if (input.toUpperCase().equals("Q")) {
             System.out.println("종료합니다.");
             System.exit(0);
         }
+
+        /**
+         *  입력에 대한 처리는 컨트롤러 마다 달라질 수 있으므로 값만 넘겨주고
+         *  각 상속 받은 컨트롤러에서 등록한 Consumer<String> inputProcess 에서 처리한다.
+         *  따라서 process는 inputProcess.accept(String input)에 사용자가 입력한 값만 넘겨주면서 호출해 준다.
+         */
+        process(input); // 입력 처리
     }
 
+    /**
+     * 콘솔 프로그램은 컨트롤러가 실행되는 절차가 고정되어 있으며 이는 변경이 불가 하다. 
+     * 따라서 final로 하위 클래스가 재정의 하지 못하도록 고정합니다.
+     * 실행 및 출력 순서는
+     * 1) common() : 공통 화면
+     * 2) view() : 하위클래스에서 구현한 view() 출력 
+     * 3) prompt() : 사용자 입력 화면
+     *
+     * 이렇게 실행 절차를 고정해 놓은 함수를  템플릿 메서드라고 하며, 주로 추상 클래스에서 구현을 하므로 이를
+     * 추상 템플릿 메서드 패턴이라고 합니다.
+     */
     public final void run() {
         common();
         view();
         prompt();
     }
-
 }
