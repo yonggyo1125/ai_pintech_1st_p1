@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중" />
+    <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/RequiredValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/TypeValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -237,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729229355428</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=" 프로젝트 기본 틀 작성 중">
+      <option name="closed" value="true" />
+      <created>1729240727392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729240727392</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
