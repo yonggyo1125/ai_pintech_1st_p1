@@ -111,21 +111,25 @@ public class Utils {
                     throw new BadRequestException(message);
                 }
 
-                break;
+                return input;
+
             } catch (CommonException e) {
                 System.out.println(e.getMessage());
             }
         }
-
-        return null;
     }
 
     public static int getNumber(String title, String message) {
 
-
+        Scanner sc = Router.sc;
         while(true) {
             try {
-                String input = getString(title, message);
+                System.out.print(title + ": ");
+                String input = sc.nextLine();
+                if (input == null || input.isBlank()) {
+                    throw new BadRequestException(message);
+                }
+
                 return Integer.parseInt(input);
             } catch (Exception e) {
                 if (e instanceof CommonException) {
