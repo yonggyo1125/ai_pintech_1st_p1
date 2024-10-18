@@ -2,7 +2,9 @@ package org.koreait.global.libs;
 
 import org.koreait.global.BeanContainer;
 import org.koreait.global.Controller;
+import org.koreait.global.exceptions.CommonException;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Utils {
@@ -41,6 +43,13 @@ public class Utils {
             method.invoke(obj);
 
         } catch (Exception e) {
+           if (e instanceof InvocationTargetException targetException) {
+               Throwable throwable = targetException.getTargetException();
+               if (throwable instanceof CommonException commonException) {
+                   throw commonException;
+               }
+           }
+
            e.printStackTrace();
         }
     }
@@ -69,6 +78,13 @@ public class Utils {
                 return (T) obj;
             }
         } catch (Exception e) {
+            if (e instanceof InvocationTargetException targetException) {
+                Throwable throwable = targetException.getTargetException();
+                if (throwable instanceof CommonException commonException) {
+                    throw commonException;
+                }
+            }
+
             e.printStackTrace();
         }
 

@@ -29,7 +29,7 @@ public abstract class Controller {
         Utils.drawLine('-', 30);
     }
 
-    public abstract void view(); // 화면 구성
+    public abstract void view() throws Exception; // 화면 구성
 
     /**
      * 사용자 입력 문구
@@ -97,7 +97,7 @@ public abstract class Controller {
      * 이렇게 실행 절차를 고정해 놓은 함수를  템플릿 메서드라고 하며, 주로 추상 클래스에서 구현을 하므로 이를
      * 추상 템플릿 메서드 패턴이라고 합니다.
      */
-    public final void run() {
+    public final void run() throws Exception {
         common();
         view();
         prompt();
