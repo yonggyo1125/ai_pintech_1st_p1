@@ -2,6 +2,7 @@ package org.koreait.global.libs;
 
 import org.koreait.global.BeanContainer;
 import org.koreait.global.Controller;
+import org.koreait.global.Model;
 import org.koreait.global.Router;
 import org.koreait.global.exceptions.BadRequestException;
 import org.koreait.global.exceptions.CommonException;
@@ -38,14 +39,20 @@ public class Utils {
      *
      * @param clazz
      * @param <T>
+     * @param model 전송 데이터
      */
-    public static <T> T loadTpl(Class<T> clazz) {
+    public static <T> T loadTpl(Class<T> clazz, Model model) {
         try {
 
             // 동적 객체 생성
             Object obj = BeanContainer.getBean(clazz);
-            Method method = clazz.getDeclaredMethod("print");
-            method.invoke(obj);
+            if (model == null) {
+                Method method = clazz.getDeclaredMethod("print");
+                method.invoke(obj);
+            } else { // 템플릿에 전달할 데이터가 있는 경우
+                Method method = clazz.getDeclaredMethod("print", Model.class);
+                method.invoke(obj, model);
+            }
 
             return (T)obj;
         } catch (Exception e) {
@@ -60,6 +67,10 @@ public class Utils {
         }
 
         return null;
+    }
+
+    public static <T> T loadTpl(Class<T> clazz) {
+        return loadTpl(clazz, null);
     }
 
     /**

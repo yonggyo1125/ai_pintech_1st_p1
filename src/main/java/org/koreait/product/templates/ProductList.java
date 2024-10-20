@@ -1,5 +1,6 @@
 package org.koreait.product.templates;
 
+import org.koreait.global.Model;
 import org.koreait.global.Template;
 import org.koreait.global.libs.Utils;
 import org.koreait.product.entities.Product;
@@ -31,9 +32,12 @@ public class ProductList implements Template {
     }
 
     @Override
-    public void setData(Object data) {
+    public void print(Model model) {
+        Object data = model.getData();
         if (data != null) {
-            this.items = (List<Product>) data;
+            items = (List<Product>)data;
         }
+
+        print();
     }
 }

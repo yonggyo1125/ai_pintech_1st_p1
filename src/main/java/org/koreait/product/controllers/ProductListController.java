@@ -2,6 +2,7 @@ package org.koreait.product.controllers;
 
 import org.koreait.global.BeanContainer;
 import org.koreait.global.Controller;
+import org.koreait.global.Model;
 import org.koreait.global.libs.Utils;
 import org.koreait.global.validators.RequiredValidator;
 import org.koreait.global.validators.TypeValidator;
@@ -37,14 +38,15 @@ public class ProductListController extends Controller implements TypeValidator, 
 
     @Override
     protected String getPromptText() {
-        return "조회할 상품번호를 입력하세요(메인메뉴: M, 종료: Q).";
+        return "조회할 상품번호를 입력하세요(메인메뉴: M, 종료: Q):";
     }
 
     @Override
     public void view() {
-        ProductInfoService service = BeanContainer.getBean(ProductInfoService.class, true);
+        ProductInfoService service = BeanContainer.getBean(ProductInfoService.class);
         List<Product> items = service.getList();
-        ProductList tpl = Utils.loadTpl(ProductList.class);
-        tpl.setData(items);
+
+        // 템플릿 로드 및 상품 목록 데이터 전송
+        Utils.loadTpl(ProductList.class, new Model(items));
     }
 }
