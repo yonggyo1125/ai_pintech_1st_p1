@@ -5,6 +5,7 @@ import org.koreait.global.Controller;
 import org.koreait.global.Router;
 import org.koreait.global.exceptions.BadRequestException;
 import org.koreait.global.exceptions.CommonException;
+import org.koreait.main.controllers.MainController;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,13 +39,15 @@ public class Utils {
      * @param clazz
      * @param <T>
      */
-    public static <T> void loadTpl(Class<T> clazz) {
+    public static <T> T loadTpl(Class<T> clazz) {
         try {
+
             // 동적 객체 생성
             Object obj = BeanContainer.getBean(clazz);
             Method method = clazz.getDeclaredMethod("print");
             method.invoke(obj);
 
+            return (T)obj;
         } catch (Exception e) {
            if (e instanceof InvocationTargetException targetException) {
                Throwable throwable = targetException.getTargetException();
@@ -55,6 +58,8 @@ public class Utils {
 
            e.printStackTrace();
         }
+
+        return null;
     }
 
     /**
@@ -107,8 +112,8 @@ public class Utils {
             try {
                 System.out.print(title + ": ");
                 String input = sc.nextLine();
-                if (input == null || input.isBlank()) {
-                    throw new BadRequestException(message);
+                if (commonInputProcess(input, message)) {
+                    break;
                 }
 
                 return input;
@@ -117,6 +122,7 @@ public class Utils {
                 System.out.println(e.getMessage());
             }
         }
+        return null;
     }
 
     /**
@@ -136,10 +142,9 @@ public class Utils {
             try {
                 System.out.print(title + ": ");
                 String input = sc.nextLine();
-                if (input == null || input.isBlank()) {
-                    throw new BadRequestException(message);
+                if (commonInputProcess(input, message)) { // 공통 입력 처리
+                    break;
                 }
-
                 return Integer.parseInt(input);
             } catch (Exception e) {
                 if (e instanceof CommonException) {
@@ -149,5 +154,33 @@ public class Utils {
                 }
             }
         }
+
+        return 0;
+    }
+
+    /**
+     * 공통 입력 처리
+     *
+     * @param input
+     * @return boolean : true인 경우 반복 중단
+     */
+    private static boolean commonInputProcess(String input, String message) {
+        if (input == null || input.isBlank()) {
+            throw new BadRequestException(message);
+        }
+
+        // 입력 문구가 대소문자 구분없이 M인 경우 메인 메뉴로 이동
+        if (input.trim().toUpperCase().equals("M")) {
+            Utils.loadController(MainController.class);
+            return true;
+        }
+
+        // 입력 문구가 대소문자 구분없이 Q인 경우 프로그램 종료
+        if (input.trim().toUpperCase().equals("Q")) {
+            System.out.println("종료합니다.");
+            System.exit(1);
+        }
+
+        return false;
     }
 }

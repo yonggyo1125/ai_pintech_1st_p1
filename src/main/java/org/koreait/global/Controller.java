@@ -20,6 +20,8 @@ import java.util.function.Consumer;
  */
 public abstract class Controller {
 
+    private Object data; // 컨트롤러 전환시 전달할 데이터
+
     // 컨트롤러마다 사용자 입력은 다르게 처리되므로 열린 기능 형태로 함수형 인터페이스를 지정합니다.
     private Consumer<String> inputProcess;
 
@@ -47,6 +49,24 @@ public abstract class Controller {
      */
     protected String getPromptText() {
         return "메뉴를 선택하세요(종료:Q):";
+    }
+
+    /**
+     * 컨트롤러 전환시 전달할 데이터
+     *
+     * @param data
+     */
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    /**
+     * 컨트롤러 전환시 전달받은 데이터
+     *
+     * @return
+     */
+    public Object getData() {
+        return data;
     }
 
     /**

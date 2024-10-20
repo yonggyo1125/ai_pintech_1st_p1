@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c36eb2c1-8470-48c7-b651-df5ae8c4f39b" name="Changes" comment=" 프로젝트 기본 틀 작성 중">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/exceptions/ProductNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/services/ProductInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/services/ProductSaveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/BeanContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/BeanContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/Template.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/libs/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/RequiredValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/RequiredValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/TypeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/global/validators/TypeValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/main/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/controllers/ProductListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/koreait/product/templates/ProductList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/koreait/product/templates/ProductList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +36,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,7 +87,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/yonggyolee/Documents/강의/AI 핀테크(1회차) - 프로젝트/ai_pintech_1st_p1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
   }
 }</component>
   <component name="RunManager" selected="Application.Application">
@@ -139,8 +167,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.UtilsTest.loadControllerTest" />
         <item itemvalue="JUnit.UtilsTest.loadTplTest" />
+        <item itemvalue="JUnit.UtilsTest.loadControllerTest" />
         <item itemvalue="Gradle.UtilsTest.loadTplTest" />
       </list>
     </recent_temporary>

@@ -36,7 +36,7 @@ public class BeanContainer {
 
         if (obj == null) {  // 없다면 동적으로 새로 생성
             try {
-                obj = clazz.getDeclaredConstructors()[0].newInstance();
+                obj = clazz.getDeclaredConstructor().newInstance();
 
                 beans.put(key, obj); // 최초 생성한 객체는 컨테이너에 저장한다.
 
@@ -49,8 +49,9 @@ public class BeanContainer {
         return (T)obj;
     }
 
+    
     /**
-     * 객체를 싱글톤 방식으로 조회
+     * 객체를 기본 생성자 싱글톤 방식으로 조회
      *
      * @param clazz
      * @return
