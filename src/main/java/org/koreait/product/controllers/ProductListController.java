@@ -24,15 +24,18 @@ public class ProductListController extends Controller implements TypeValidator, 
             if (!check(input)) { // 필수 항목 체크
                 return;
             }
+
             if (!isNumber(input)) {
                 System.out.println("상품 번호는 숫자만 입력하세요.");
                 return;
             }
+
             /* 유효성 검사 E */
 
             // 선택한 상품 번호와 함께 상품 상세로 이동
-            ProductViewController viewController = Utils.loadController(ProductViewController.class);
-            viewController.setData(input);
+           Utils.loadController(ProductViewController.class, new Model(Long.parseLong(input)));
+
+
         });
     }
 

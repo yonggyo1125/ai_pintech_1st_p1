@@ -81,8 +81,9 @@ public class Utils {
      * @param clazz
      * @return
      * @param <T>
+     * @param model : 전송할 데이터
      */
-    public static <T> T loadController(Class<T> clazz) {
+    public static <T> T loadController(Class<T> clazz, Model model) {
 
         /**
          * 컨트롤러는 공통적으로 run 이라는 메서드가 정의되어 있고 run은 일련의 실행 절차가 정의되어 있다.
@@ -91,10 +92,17 @@ public class Utils {
             Object obj = BeanContainer.getBean(clazz);
 
             // Controller인 경우만 처리
-            if (obj instanceof Controller) {
+            if (obj instanceof Controller controller) {
+
+
+                if (model != null) { // 전송 데이터 처리
+                    controller.setData(model.getData());
+                }
+
                 Method method = clazz.getSuperclass().getDeclaredMethod("run");
                 method.invoke(obj);
-                return (T) obj;
+
+                return (T) controller;
             }
         } catch (Exception e) {
             if (e instanceof InvocationTargetException targetException) {
@@ -108,6 +116,10 @@ public class Utils {
         }
 
         return null;
+    }
+
+    public static <T> T loadController(Class<T> clazz) {
+        return loadController(clazz, null);
     }
 
     /**

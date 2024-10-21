@@ -7,7 +7,7 @@ package org.koreait.global.validators;
 public interface TypeValidator {
     default boolean isNumber(String str) {
         try {
-            Integer.parseInt(str);
+            Long.parseLong(str);
             return true;
         } catch (Exception e) {
             return false;
