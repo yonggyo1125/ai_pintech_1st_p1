@@ -1,5 +1,5 @@
-## 도메인 구조 분석 
-### global
+# 도메인 구조 분석 
+## global
 > 모든 도메인에서 공유하는 소스 및 기능이 정의됩니다.
 
 - `exceptions` : 공통으로 사용되는 예외이며, 사용자 정의 예외의 기본 예외가 정의 되어 있습니다.
@@ -30,3 +30,72 @@
  
 - `Router`: 프로그램을 시작하는 메서드 execute()가 정의되어 있고 처음 메뉴로 MainController해서 실행해 줍니다. 
 - `Template`: 템플릿 출력의 기본 틀, Utils.loadTpl(...)을 호출하면 print() 또는 print(Model model)이 호출 됩니다.
+
+## main
+> 메인 도메인, 메인 메뉴 출력을 담당 합니다.
+
+- `controllers/MainController` : 처음 접속시 실행되는 컨트롤러, M을 입력했을때도 여기로 유입됩니다.
+- `templates/MainMenu` : 메인 메뉴 출력
+
+## product
+> 상품 도메인, 상품 등록, 수정, 목록, 삭제등
+- `controllers/ProductController`: 상품 등록 처리 
+
+```java
+ setPromptProcess(() ->{
+     // 상품 등록 정보 입력 처리 
+        
+ });
+```
+> 컨트롤러마다 입력을 받는 유형이나 처리는 다양할 수 있으므로 열긴 기능으로 개발합니다. 
+> Consumer 함수형 인터페이스로 람다식을 만들어 이를 처리합니다. 이는 일회성이미 사용자 정의 기능 입니다.
+
+```java
+protected String getPromptText() {
+    return "등록할 상품 정보를 입력하세요(메인 메뉴: M, 종료: Q).\n";
+}
+```
+
+> 입력 안내문구 역시 컨트롤러 마다 다를 수 있으므로 재정의하면 변경되도록 구현되어 있습니다. 상품 등록은 문구가 달라지므로 재정의 합니다.
+
+- `controllers/ProductListController`: 상품 목록 컨트롤러
+
+```java
+setInputProcess(input ->{
+        
+});
+```
+
+> 상품 목록 화면에서는 상품 번호를 가지고 상품 상세로 이동을 하므로 처리가 다를 수 있으므로 사용자 정의 기능 형태로 람다 정의(Consumer)
+
+```java
+@Override
+public void view() {
+    ProductInfoService service = BeanContainer.getBean(ProductInfoService.class);
+    List<Product> items = service.getList();
+
+    // 템플릿 로드 및 상품 목록 데이터 전송
+  Utils.loadTpl(ProductList.class, new Model(items));
+}
+```
+
+> 상품 목록은 상품 목록 데이터를 뷰에서 출력하므로 new Model(items) 형태로 데이터를 뷰에 전달합니다.
+
+
+- `controllers/ProductViewController`: 상품 상세 출력 및 수정, 삭제로 유도(미구현)
+
+- `entities`
+  - 엔티티는 주로 데이터 하나를 의미합니다. 데이터 하나를 담는 용도의 클래스를 정의합니다.
+  - `Product` : 상품 정보를 담는 목적
+
+- `exceptions`: 상품 도메인에 특정되는 예외를 정의합니다.
+  - `ProductNotFoundException`: 조회된 상품이 없는 경우 발생
+
+- `services`: 서비는 주로 기능을 담당하는 클래스를 정의합니다.
+  - `ProductInfoService`: 상품 단일, 목록 조회
+  - `ProductSaveService`: 상품 추가 및 수정
+
+- `templates` : 출력 템플릿이 정의됩니다.
+  - `ProductForm`: 상품 등록 양식
+  - `ProductList`: 상품 목록
+  - `ProductView`: 상품 상세 보기
