@@ -7,10 +7,15 @@
   - `BadRequestException` : 사용자 요청 데이터가 처리에 맞지 않은 경우, 즉 사용자의 데이터를 검증했을때 실패한 경우 발생하는 예외, 이때는 예외 코드가 400으로 고정합니다.
 - `libs`: 편의 기능 모음
   - Utils
-    
+    - `drawLine` : 라인 그리기 
+    - `loadTpl` : 출력 템플릿 객체 생성 및 출력 함수 호출(print(), print(Model model))
+    - `loadController`: 컨트롤러 객체 생성 및 실행 함수 호출(run())
+    - `getString` : 텍스트 입력 처리, 필수 입력 검증 역시 진행이 됩니다(`commonInputProcess`). 검증 성공시 입력한 값을 반환
+    - `getNumber`: 숫자 입력 처리, 필수 입력 검증(`commonInputProcess`) 및 숫자 검증이 진행이 됩니다. 정상 입력이 된 경우 int 형으로 변환하여 반환
+    - `commonInputProcess`: 공통 입력 처리, 필수 항목 검증, M 입력시 메인 메뉴 이동, Q 입력시 종료 처리
 - `validators` : 공통 검증 인터페이스 모음
-  - RequiredValidator : 필수 항목 검증
-  - TypeValidator: 자료형 검증 - 현재는 숫자 형식 검증만 있음, 필요에 따라 추가해도 됨
+  - `RequiredValidator` : 필수 항목 검증
+  - `TypeValidator`: 자료형 검증 - 현재는 숫자 형식 검증만 있음, 필요에 따라 추가해도 됨
 - `BeanContainer`: 객체를 최초로 조회하는 경우는 객체를 생성하고 이를 컨테이너(beans)에 보관합니다. 따라서 2번째 조회부터는 이미 생성된 객체를 반환 합니다. 
   - 싱글톤 패턴이 적용된 사례(필요할때 한번만 생성해서 공유하는 패턴)
                     
