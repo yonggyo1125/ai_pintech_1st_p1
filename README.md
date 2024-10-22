@@ -50,3 +50,6 @@
 - 인프라 계층  : 공통 인프라(DB ...)
 
 > MSA(Microservice Architecture)
+
+## 소스 분석
+- 도메인 구조 분석
