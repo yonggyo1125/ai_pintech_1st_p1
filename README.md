@@ -52,4 +52,4 @@
 > MSA(Microservice Architecture)
 
 ## 소스 분석
-- 도메인 구조 분석
+- [도메인 구조 분석](https://github.com/yonggyo1125/ai_pintech_1st_p1/blob/master/STRUCTURE.md)
